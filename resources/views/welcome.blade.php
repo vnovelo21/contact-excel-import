@@ -24,6 +24,7 @@
     <body>
         <div id="app">
             <example-component></example-component>
+            <import-component></import-component>
         </div>
     </body>
 </html>

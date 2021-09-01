@@ -1,11 +1,11 @@
 <template>
-    <div v-if="showContactTable === true && count(contacts) > 0" class="d-flex flex-column justify-content-center align-items-center">
+    <div v-if="contacts.length > 0">
         <div>
             <button @click="toggleContactTable()" class="btn btn-primary">Show Table</button>
         </div>
-        <div style="padding: 10px;">
+        <div  v-if="contacts.length > 0 && showContactTable" v-bind:style="styleObject">
             <h4 class="text-center font-weight-bold">Contacts</h4>
-            <table class="table table-striped" style="max-height:200px; overflow:scroll; text-align:center; margin:auto;">
+            <table class="table table-striped" style="margin-top:10px;">
                 <thead>
                 <tr>
                     <th scope="col">First Name</th>
@@ -36,7 +36,14 @@
         },
         data: function(){
             return {
-                showContactTable: false 
+                showContactTable: false,
+                styleObject: {
+                    padding: "10px",
+                    maxHeight:"50vh", 
+                    overflowY:"scroll",
+                    textAlign:"center", 
+                    margin:"auto"
+                }, 
             }
         },
         computed: {

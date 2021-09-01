@@ -25,11 +25,15 @@
     </head>
     <body>
         <div id="app">
-            <div class="d-flex flex-column justify-content-center align-items-center" style="height:100vh; text-align:center;">    
-                <h1>Better Agency: Contact Importer😄 </h1>  
-                <import-component style="padding:10px;"></import-component>
-                <message-component></message-component>   
-                <contact-table-component class="p-2"></contact-table-component>
+            <div class="d-flex flex-column justify-content-center align-items-center" style="height:100vh; text-align:center;">
+                <div style="box-shadow: 10px 5px 5px red; border: 1px solid black ; padding: 10px;">
+                    <message-component></message-component>
+                    <h1>Better Agency: Contact Importer😄 </h1>  
+                    <import-component style="padding:10px;"></import-component>
+                    <contact-table-component class="p-2"></contact-table-component>
+                </div>    
+                
+                
             </div>
         </div>
 

@@ -1888,7 +1888,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      showContactTable: false
+      showContactTable: false,
+      styleObject: {
+        padding: "10px",
+        maxHeight: "50vh",
+        overflowY: "scroll",
+        textAlign: "center",
+        margin: "auto"
+      }
     };
   },
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(['contacts'])),
@@ -2095,16 +2102,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 var actions = {
-  // createContact({commit}, post) {
-  //     axios.post('/contacts/import', post)
-  //         .then(res => {
-  //             commit('CREATE_CONTACT', res.data)
-  //         }).catch(err => {
-  //         console.log(err)
-  //     })
-  // },
-  fetchContacts: function fetchContacts(_ref) {
+  createContacts: function createContacts(_ref) {
     var commit = _ref.commit;
+    axios.post('/contacts/import').then(function (res) {
+      commit('SET_MESSAGE', 'Succesfully Imported the Excel File!');
+    })["catch"](function (err) {
+      commit('SET_MESSAGE', 'There was an Error Importing the Excel File!');
+      console.log(err);
+    });
+  },
+  fetchContacts: function fetchContacts(_ref2) {
+    var commit = _ref2.commit;
     axios.get('/contacts/import').then(function (res) {
       commit('FETCH_CONTACTS', res.data);
     })["catch"](function (err) {
@@ -2184,9 +2192,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 var mutations = {
-  // CREATE_CONTACT(state, contact) {
-  //     state.contacts.unshift(contact);
-  // },
   FETCH_CONTACTS: function FETCH_CONTACTS(state, contacts) {
     return state.contacts = contacts;
   },
@@ -37832,66 +37837,56 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.showContactTable === true && _vm.count(_vm.contacts) > 0
-    ? _c(
-        "div",
-        {
-          staticClass:
-            "d-flex flex-column justify-content-center align-items-center"
-        },
-        [
-          _c("div", [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                on: {
-                  click: function($event) {
-                    return _vm.toggleContactTable()
-                  }
+  return _vm.contacts.length > 0
+    ? _c("div", [
+        _c("div", [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              on: {
+                click: function($event) {
+                  return _vm.toggleContactTable()
                 }
-              },
-              [_vm._v("Show Table")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticStyle: { padding: "10px" } }, [
-            _c("h4", { staticClass: "text-center font-weight-bold" }, [
-              _vm._v("Contacts")
-            ]),
-            _vm._v(" "),
-            _c(
-              "table",
-              {
-                staticClass: "table table-striped",
-                staticStyle: {
-                  "max-height": "200px",
-                  overflow: "scroll",
-                  "text-align": "center",
-                  margin: "auto"
-                }
-              },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.contacts, function(contact) {
-                    return _c("tr", { key: contact.id }, [
-                      _c("td", [_vm._v(_vm._s(contact.firsname))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(contact.lastname))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(contact.email))])
-                    ])
-                  }),
-                  0
-                )
-              ]
-            )
-          ])
-        ]
-      )
+              }
+            },
+            [_vm._v("Show Table")]
+          )
+        ]),
+        _vm._v(" "),
+        _vm.contacts.length > 0 && _vm.showContactTable
+          ? _c("div", { style: _vm.styleObject }, [
+              _c("h4", { staticClass: "text-center font-weight-bold" }, [
+                _vm._v("Contacts")
+              ]),
+              _vm._v(" "),
+              _c(
+                "table",
+                {
+                  staticClass: "table table-striped",
+                  staticStyle: { "margin-top": "10px" }
+                },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.contacts, function(contact) {
+                      return _c("tr", { key: contact.id }, [
+                        _c("td", [_vm._v(_vm._s(contact.firsname))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(contact.lastname))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(contact.email))])
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          : _vm._e()
+      ])
     : _vm._e()
 }
 var staticRenderFns = [

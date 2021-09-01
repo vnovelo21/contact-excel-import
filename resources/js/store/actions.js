@@ -1,13 +1,14 @@
 let actions = {
-    // createContact({commit}, post) {
-    //     axios.post('/contacts/import', post)
-    //         .then(res => {
-    //             commit('CREATE_CONTACT', res.data)
-    //         }).catch(err => {
-    //         console.log(err)
-    //     })
-      
-    // },
+    createContacts({commit}) {
+        axios.post('/contacts/import')
+        .then(res => {
+            commit('SET_MESSAGE', 'Succesfully Imported the Excel File!')
+        })
+        .catch(err => {
+            commit('SET_MESSAGE', 'There was an Error Importing the Excel File!')
+            console.log(err)
+        })
+    },
     fetchContacts({commit}) {
         axios.get('/contacts/import')
             .then(res => {

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +16,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/contacts/import', 'ContactImportController@show');
-Route::post('/contacts/import', 'ContactImportController@store');
+Route::get('/contacts/import', 'App\Http\Controllers\ContactImportController@show');
+Route::post('/contacts/import', 'App\Http\Controllers\ContactImportController@store');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

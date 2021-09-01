@@ -1,6 +1,7 @@
 <template>
     <div>
-        <form action="/users/import" method="post" enctype="multipart/form-data">
+        <form action="/contacts/import" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="_token" :value="csrf">
             <div class="form-group">
                 <input type="file" name="file" />
                 <button type="submit" class="btn btn-primary">Import</button>
@@ -13,6 +14,9 @@
     export default {
         mounted() {
             console.log('Import component mounted Vue')
-        }
+        },
+        data: () => ({
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        }),
     }
 </script>

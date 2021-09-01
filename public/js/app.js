@@ -1891,9 +1891,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('Import component mounted Vue');
+  },
+  data: function data() {
+    return {
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    };
   }
 });
 
@@ -37572,34 +37578,39 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "form",
+      {
+        attrs: {
+          action: "/contacts/import",
+          method: "post",
+          enctype: "multipart/form-data"
+        }
+      },
+      [
+        _c("input", {
+          attrs: { type: "hidden", name: "_token" },
+          domProps: { value: _vm.csrf }
+        }),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
+    return _c("div", { staticClass: "form-group" }, [
+      _c("input", { attrs: { type: "file", name: "file" } }),
+      _vm._v(" "),
       _c(
-        "form",
-        {
-          attrs: {
-            action: "/users/import",
-            method: "post",
-            enctype: "multipart/form-data"
-          }
-        },
-        [
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", { attrs: { type: "file", name: "file" } }),
-            _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-              [_vm._v("Import")]
-            )
-          ])
-        ]
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Import")]
       )
     ])
   }

@@ -1,7 +1,9 @@
- //../resources/js/components/Posts.vue
-    
-    <template>
+<template>
+    <div class="d-flex flex-column justify-content-center align-items-center">
         <div>
+            <button @click="toggleContactTable()" class="btn btn-primary">Show Table</button>
+        </div>
+        <div v-if="showContactTable === true && 0 === 0" style="padding: 10px;">
             <h4 class="text-center font-weight-bold">Contacts</h4>
             <table class="table table-striped">
                 <thead>
@@ -20,7 +22,28 @@
                 </tbody>
             </table>
         </div>
-    
-    </template>
+    </div>
+
+</template>
+
+<script>
+    export default {
+        mounted(){
+            this.showContactTable = false;
+        },
+        data: function(){
+            return {
+                showContactTable: false 
+            }
+        },
+        methods:{
+            toggleContactTable: function(){
+                console.log(this.showContactTable);
+                console.log('toggling button')
+                this.showContactTable = !this.showContactTable
+            }
+        }
+    }
+</script>
 
     

@@ -12,9 +12,6 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Import component mounted Vue')
-        },
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         }),

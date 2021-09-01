@@ -26,8 +26,9 @@
     <body>
         <div id="app">
             <div class="d-flex flex-column justify-content-center align-items-center" style="height:100vh; text-align:center;">    
-                <h1>Better Agency: Contact Importer😄 </h1>     
+                <h1>Better Agency: Contact Importer😄 </h1>  
                 <import-component style="padding:10px;"></import-component>
+                <message-component></message-component>   
                 <contact-table-component class="p-2"></contact-table-component>
             </div>
         </div>

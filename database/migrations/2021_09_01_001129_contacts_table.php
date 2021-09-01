@@ -18,7 +18,6 @@ class ContactsTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email');
-            $table->timestamps();
         });
     }
 

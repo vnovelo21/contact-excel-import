@@ -8,6 +8,8 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
+import store from './store/index';
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -21,6 +23,7 @@ window.Vue = require('vue').default;
 
 Vue.component('import-component', require('./components/ImportComponent.vue').default);
 Vue.component('contact-table-component', require('./components/ContactTableComponent.vue').default);
+Vue.component('message-component', require('./components/MessageComponent.vue').default);
 
 
 /**
@@ -31,4 +34,5 @@ Vue.component('contact-table-component', require('./components/ContactTableCompo
 
 const app = new Vue({
     el: '#app',
+    store
 });

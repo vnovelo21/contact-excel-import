@@ -16,7 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contacts/import', 'App\Http\Controllers\ContactImportController@show');
+Route::get('/contacts/import', 'App\Http\Controllers\ContactImportController@get');
 Route::post('/contacts/import', 'App\Http\Controllers\ContactImportController@store');
 
 Auth::routes();

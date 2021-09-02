@@ -15,7 +15,7 @@
                 </thead>
                 <tbody>
                 <tr v-for="contact in contacts" v-bind:key="contact.id">
-                    <td>{{contact.firsname}}</td>
+                    <td>{{contact.firstname}}</td>
                     <td>{{contact.lastname}}</td>
                     <td>{{contact.email}}</td>
                 </tr>

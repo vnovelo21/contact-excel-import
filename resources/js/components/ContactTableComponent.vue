@@ -31,8 +31,13 @@
 
     export default {
         mounted(){
-            this.showContactTable = false;
-            this.$store.dispatch('fetchContacts')
+            if(this.contacts.length > 0){
+                this.showContactTable = true;
+            }
+            else{
+                this.showContactTable = false;
+            }
+            this.$store.dispatch('fetchContacts');
         },
         data: function(){
             return {
@@ -53,9 +58,7 @@
         },
         methods:{
             toggleContactTable: function(){
-                console.log(this.showContactTable);
-                console.log('toggling button')
-                this.showContactTable = !this.showContactTable
+                this.showContactTable = !this.showContactTable;
             }
         }
     }

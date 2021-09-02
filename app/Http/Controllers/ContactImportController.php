@@ -9,7 +9,6 @@ use App\Models\Contact;
 
 class ContactImportController extends Controller
 {
-    
     public function get(Request $request)
     {
         $contacts = Contact::orderBy('firstname', 'desc')->get();
@@ -21,7 +20,6 @@ class ContactImportController extends Controller
 
         Excel::import(new ContactImport, $file);
 
-        // TODO: Need to for message display
         return back()->withStatus('Excel file imported successfully');
     }
 }

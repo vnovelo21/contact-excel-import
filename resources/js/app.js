@@ -23,7 +23,6 @@ import store from './store/index';
 
 Vue.component('import-component', require('./components/ImportComponent.vue').default);
 Vue.component('contact-table-component', require('./components/ContactTableComponent.vue').default);
-Vue.component('message-component', require('./components/MessageComponent.vue').default);
 
 
 /**

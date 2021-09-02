@@ -31,9 +31,20 @@
                 <div class="app-component-container">
                     <h1>Better Agency: Contact Importer😄 </h1>  
                     <import-component></import-component>
+                    <!--Succcess Display-->  
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
+                        </div>
+                    @endif
+                    <!--Error Display-->  
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
                     @endif
                     <contact-table-component></contact-table-component>

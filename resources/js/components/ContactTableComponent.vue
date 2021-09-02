@@ -1,11 +1,11 @@
 <template>
-    <div v-if="contacts.length > 0">
+    <div v-if="contacts.length > 0" class="p-2">
         <div>
             <button @click="toggleContactTable()" class="btn btn-primary">Show Table</button>
         </div>
         <div  v-if="contacts.length > 0 && showContactTable" v-bind:style="styleObject">
             <h4 class="text-center font-weight-bold">Contacts</h4>
-            <table class="table table-striped" style="margin-top:10px;">
+            <table id="contact-table" class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">First Name</th>

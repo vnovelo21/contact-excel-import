@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="import-component-container">
         <form action="/contacts/import" method="post" enctype="multipart/form-data">
         <input type="hidden" name="_token" :value="csrf">
             <div class="form-group">

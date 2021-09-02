@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <title>Better Agency: Contact Importer😄</title>
         <script defer src="{{ mix('/js/app.js') }}"></script>
@@ -27,16 +27,16 @@
     </head>
     <body>
         <div id="app">
-            <div class="d-flex flex-column justify-content-center align-items-center" style="height:100vh; text-align:center;">
-                <div style="box-shadow: 10px 5px 5px red; border: 1px solid black ; padding: 10px;">
+            <div class="app-container d-flex flex-column justify-content-center align-items-center">
+                <div class="app-component-container">
                     <h1>Better Agency: Contact Importer😄 </h1>  
-                    <import-component style="padding:10px;"></import-component>
+                    <import-component></import-component>
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
                     @endif
-                    <contact-table-component class="p-2"></contact-table-component>
+                    <contact-table-component></contact-table-component>
                 </div>    
                 
                 

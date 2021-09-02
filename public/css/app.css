@@ -54,6 +54,23 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
+.app-container{
+  height:100vh; 
+  text-align:center;
+}
+.app-component-container{
+  box-shadow: 10px 5px 5px red; 
+  border: 1px solid black; 
+  padding: 10px;
+}
+
+#import-component-container{
+  padding:5px;
+}
+#contact-table{
+  margin-top:10px;
+}
+
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;
